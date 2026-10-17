@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Harini Portfolio</title>
+<style>
+  body{
+    font-family:Arial; 
+    margin:20px;
+  }
+  img{
+    width:180px;
+    border-radius:10px;
+  }
+  .box{
+    background-color: white;
+    border:1px solid #ddd; 
+    box-shadow: 0px 0px 5px gray;
+    padding:15px; 
+    border-radius:8px; 
+    margin-bottom:20px;}
+  .row{
+    margin-bottom:15px; 
+    display:block;}
+    button{
+      background-color: blueviolet;
+      color: white;
+      border: none;
+      border-color: grey;
+      border-radius: 5px;
+      padding:10px 20px;
+      margin:10px;
+      cursor:pointer ;   
+      }
+      button:hover{
+        background-color:green;
+      }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>My Portfolio</h2>
+  <img src="harini.jpg" alt="harini photo">
+</div>
+
+<div class="box">
+  <h2>About Me</h2>
+  <p>I am M.Harini,a final year Computer Science Student at<em> Scient Institute of Technology.</em></p>
+  <p>I am Passionate about Web development ans Software Engineering. I enjoy building responsive,user-friendly web applications using HTMl,CSS,JS.</p>
+  </div>
+
+  <div class="box">
+  <h2>Projects</h2>
+    <h4>Software defect prediction</h4>
+    <p>My minor Project is Software Defect Prediction using Machine Learing where I build a model to predict software defects with 85% accuracy.</p>
+</div>
+
+<div class="box">
+  <h2>Skills</h2>
+  <ol>
+    <li>java</li>
+    <li>html,css,javascript</li>
+    <li>mysql</li>
+  </ol>
+</div>
+
+<div class="box">
+  <h2>Contacts</h2>
+  <form id = "contactForm">
+    <fieldset>
+      <legend>Enter Your Details</legend>
+    <div class="row">
+      <label>Name:</label><br>
+      <input type="text"  id= "name" placeholder="enter your name"><br>
+      <p id ="nameError" class="error"></p>
+
+      <label>Email:</label><br>
+      <input type="text" id = "email" placeholder="enter your email">
+            <p id ="emailError" class="error"></p>
+
+    </div>
+
+    <div class="row">
+      <label>Gender:</label><br>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">male</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">female</label>
+      <input type="radio" id="other" name="gender" value="other">
+      <label for="other">other</label>
+      <p id ="genderError" class="error"></p>
+
+    </div>
+
+    <div class="row">
+      <label>Intersted:</label><br>
+      <input type="checkbox" id="web" name="intersted" value="web">
+      <label for="web">Web development</label>
+      <input type="checkbox" id="python" name="intersted" value="python">
+      <label for="python">python</label>
+      <input type="checkbox" id="java" name="intersted" value="java">
+      <label for="java">java</label>
+      <p id ="interstedError" class="error"></p>
+    </div>
+    <p id="successMsg"></p>
+   <button type="submit">Submit</button>
+ </fieldset>
+  </form>
+     </div>
+<script>
+  const form = document.getElementById("contactForm");
+  const successMsg = document.getElementById("successMsg");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    let isValid = true;
+    alert("Test OK");
+    window.location.href="Second.html";
+
+    
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const gender = document.querySelector('input[name="gender"]:checked');
+    const intersted = document.querySelectorAll('input[name="intersted"]:checked');
+
+          document.getElementById("nameError").innerText=" ";
+          document.getElementById("emailError").innerText=" ";
+          document.getElementById("genderError").innerText=" ";
+          document.getElementById("interstedError").innerText=" ";
+          document.getElementById("submitError").innerText=" ";
+
+
+    if(nameVal== ""){
+      document.getElementById("nameError").innerText="Enter a name";
+      isValid=false;
+    }
+    if(emailVal=== "" || !email.includes("@")){
+      document.getElementById("emailError").innerText="Enter valid email";
+      isValid=false;
+    }
+     if(!gender){
+      document.getElementById("genderError").innerText=" please select gender";
+      isValid=false;
+     }
+      if(intersted.length === 0){
+      document.getElementById("interestedError").innerText="select interst";
+      isValid=false;
+     }
+
+     if(isValid){
+     successMsg.innerText="Form Submitted!";
+     setTimeout(() => {
+     window.location.href = "Second.html";
+     },800);
+     }
+     }
+    );
+
+</script>
+
+</body>
+</html>
